@@ -40,11 +40,10 @@ export default {
         console.log(111);
       },
       addNew(){
-        this.items.push({
+        this.items.unshift({
           text:this.NewItem,
           isFined:this.isFined
         })
-        console.log(this.NewItem);
         this.NewItem = ''
       },
       del(index){
@@ -117,7 +116,7 @@ ul{
 }
 .item ul li span{
   cursor: pointer;
-  font-size: 16px;
+  font-size: 15px;
   width: 86%;
   padding: 0 8px;
   color: #333131;
