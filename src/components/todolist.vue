@@ -54,7 +54,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .warpper{
   width: 600px;
@@ -67,6 +66,7 @@ h1{
   font-style: italic;
 }
 .item li.finished i{
+  height: 40px;
   width: 40px;
   background: url('data:image/svg+xml;utf8,<svg%20xmlns%3D"http%3A//www.w3.org/2000/svg"%20width%3D"40"%20height%3D"40"%20viewBox%3D"-10%20-18%20100%20135"><circle%20cx%3D"50"%20cy%3D"50"%20r%3D"50"%20fill%3D"none"%20stroke%3D"%23bddad5"%20stroke-width%3D"3"/><path%20fill%3D"%235dc2af"%20d%3D"M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z"/></svg>') no-repeat;
 }
@@ -95,18 +95,18 @@ ul{
 }
 .item ul li{
   border-bottom: 1px solid #ddd;
-  padding:8px 16px;
+  padding:6px 16px;
   display: flex;
   min-height: 36px;
-  line-height: 36px;
+  line-height: 24px;
   flex: 1;
+  align-items: center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
   justify-content:space-between;
-}
-.item ul li:hover em{
-  display: block;
 }
 .item ul li i{
   width: 40px;
+  height: 40px;
   background: url('data:image/svg+xml;utf8,<svg%20xmlns%3D"http%3A//www.w3.org/2000/svg"%20width%3D"40"%20height%3D"40"%20viewBox%3D"-10%20-18%20100%20135"><circle%20cx%3D"50"%20cy%3D"50"%20r%3D"50"%20fill%3D"none"%20stroke%3D"%23ededed"%20stroke-width%3D"3"/></svg>') no-repeat;
 }
 .item ul li em{
@@ -114,12 +114,12 @@ ul{
   font-size: 18px;
   cursor: pointer;
   text-align: right;
-  display: none;
 }
 .item ul li span{
   cursor: pointer;
   font-size: 16px;
-  width: 88%;
+  width: 86%;
+  padding: 0 8px;
   color: #333131;
 }
 @media screen and ( max-width: 640px ) {
@@ -132,8 +132,7 @@ ul{
   text-align: center;
 }
 input{
-  width: 90%;
-  height: 38px;
+  width: 85.6%;
   font-size: 14px;
 }
 h1{
@@ -145,10 +144,12 @@ h1{
   text-align: center;
   }
   .item ul li{
-    /* min-height: 38px; */
+    padding:4px 16px;
+    line-height: 22px;
   }
   .item ul li span{
     font-size: 13px;
+    text-align: left;
   }
 }
 </style>
