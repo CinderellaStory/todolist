@@ -1,11 +1,11 @@
 <template>
   <div class="warpper">
     <h1>{{title}}</h1>
-    <input v-model="NewItem" @keyup.enter="addNew" placeholder="请输入进入想做的事情~">
+    <input v-model="NewItem" @keyup.enter="addNew" placeholder="今天想干啥呢~">
     <div class="item">
       <ul>
         <li v-for="(item,index) in items" :key="index" :class="{finished:item.isFined}" @click="toggleFinsh(item)">
-          <!-- <i></i> -->
+          <i></i>
           <span>{{item.text}}</span>
           <em @click="del">X</em>
         </li>
@@ -57,7 +57,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .warpper{
-  /* border: 1px solid red; */
   width: 600px;
   margin: 0 auto;
 }
@@ -67,14 +66,18 @@ h1{
   font-weight: 400;
   font-style: italic;
 }
-.finished{
+.item li.finished i{
+  width: 40px;
+  background: url('data:image/svg+xml;utf8,<svg%20xmlns%3D"http%3A//www.w3.org/2000/svg"%20width%3D"40"%20height%3D"40"%20viewBox%3D"-10%20-18%20100%20135"><circle%20cx%3D"50"%20cy%3D"50"%20r%3D"50"%20fill%3D"none"%20stroke%3D"%23bddad5"%20stroke-width%3D"3"/><path%20fill%3D"%235dc2af"%20d%3D"M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z"/></svg>') no-repeat;
+}
+.item li.finished span{
  text-decoration:line-through;
+  color: #ddd;
 }
 input{
   outline: none;
-  padding-left: 10px;
-  width: 97.8%;
-  height: 40px;
+  padding: 16px 14px;
+  width: 95%;
   font-size: 16px;
   border: 1px solid #ddd;
 }
@@ -91,22 +94,61 @@ ul{
   padding: 0;
 }
 .item ul li{
-  min-height: 40px;
   border-bottom: 1px solid #ddd;
-  padding:4px 10px;
-  overflow: hidden;
+  padding:8px 16px;
+  display: flex;
+  min-height: 36px;
+  line-height: 36px;
+  flex: 1;
+  justify-content:space-between;
+}
+.item ul li:hover em{
+  display: block;
+}
+.item ul li i{
+  width: 40px;
+  background: url('data:image/svg+xml;utf8,<svg%20xmlns%3D"http%3A//www.w3.org/2000/svg"%20width%3D"40"%20height%3D"40"%20viewBox%3D"-10%20-18%20100%20135"><circle%20cx%3D"50"%20cy%3D"50"%20r%3D"50"%20fill%3D"none"%20stroke%3D"%23ededed"%20stroke-width%3D"3"/></svg>') no-repeat;
 }
 .item ul li em{
-  float: right;
   color: red;
   font-size: 18px;
   cursor: pointer;
-  line-height: 40px;
+  text-align: right;
+  display: none;
 }
 .item ul li span{
+  cursor: pointer;
   font-size: 16px;
-  line-height: 40px;
+  width: 88%;
   color: #333131;
-  float: left;
+}
+@media screen and ( max-width: 640px ) {
+  body {
+        background:lightblue;
+    }
+.warpper{
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+input{
+  width: 90%;
+  height: 38px;
+  font-size: 14px;
+}
+h1{
+  width: 93%;
+}
+.item{
+  width: 93%;
+  margin: 0 auto;
+  text-align: center;
+  }
+  .item ul li{
+    /* min-height: 38px; */
+  }
+  .item ul li span{
+    font-size: 13px;
+  }
 }
 </style>
