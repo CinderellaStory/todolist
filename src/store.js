@@ -1,5 +1,6 @@
 const STORAGE_KEY = 'todos-vuejs'
 export default {
+    // 取数据
     feach() {
         return JSON.parse(window.localStorage.getItem(STORAGE_KEY) || '[]')
     },

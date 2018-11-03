@@ -40,11 +40,15 @@ export default {
         console.log(111);
       },
       addNew(){
+        if(this.NewItem===''){
+          alert("请输入内容！")
+        }else{
         this.items.unshift({
           text:this.NewItem,
           isFined:this.isFined
         })
         this.NewItem = ''
+        }
       },
       del(index){
         this.items.splice(index,1);
