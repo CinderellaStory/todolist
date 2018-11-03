@@ -40,7 +40,19 @@ export default {
         console.log(111);
       },
       addNew(){
-        if(this.NewItem===''){
+        var reg = /[`~!@#$%^&*()_+<>?:"{},.\/;'[\]]/im;
+        var text = /^\d+$/;
+        if(reg.test(this.NewItem)){
+          alert("请不要输入非法字符！")
+          this.NewItem = ''
+          return;
+        }
+        if(text.test(this.NewItem)){
+          alert("请不要输入都是数字！")
+          this.NewItem = ''
+          return;
+        }
+        if(this.NewItem === ''){
           alert("请输入内容！")
         }else{
         this.items.unshift({
